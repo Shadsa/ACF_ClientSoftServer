@@ -1,26 +1,34 @@
 //Global var
-var DBtools = require('./DBtools.js'); //===>
-var http = require('http');
-var url = require('url');
-var fs = require('fs');
-var querystring = require('querystring');
-var session = require('cookie-session'); // Charge le middleware de sessions
-var bodyParser = require('body-parser'); // Charge le middleware de gestion des paramètres
+var DBtools = require('./DBtools.js'); //===>inclusion des querys et outils de prefetching
+	http = require('http');
+	url = require('url');
+	fs = require('fs');//middleware file input/output
+	querystring = require('querystring');
+	session = require('cookie-session'); // Charge le middleware de sessions
+	bodyParser = require('body-parser'); // Charge le middleware de gestion des paramètres
 
 
 //var Mongo
-var MongoClient = require('mongodb').MongoClient;
-var assert = require('assert');
-var ObjectId = require('mongodb').ObjectID;
 var MONGODBURL = 'mongodb://localhost:27017/ACF_Test';
-var express = require('express');
+	MongoClient = require('mongodb').MongoClient,
+    Server = require('mongodb').Server,
+    ReplSetServers = require('mongodb').ReplSetServers,
+    ObjectID = require('mongodb').ObjectID,
+    Binary = require('mongodb').Binary,
+    GridStore = require('mongodb').GridStore,
+    Grid = require('mongodb').Grid,
+    Code = require('mongodb').Code,
+    BSON = require('mongodb').BSON,
+    assert = require('assert');
 var db;
+
+
 
 //csv-to-json
 var csv = require('csv-to-json');//Charge le parser CSV 
-
 //Express var
-var app = express();
+var express = require('express');
+	 app = express();
 
 //App global var
 var PORT = 8080;
@@ -30,7 +38,7 @@ var PORT = 8080;
 
 
 
-//Paramétrage de l'appli
+//Démarrage de la base Mongo, je ne la ferme pas ensuite (accés facile avec db directe). Si utilisateur il y'a, on gère la connexion ici.
 MongoClient.connect(MONGODBURL, (err, database) => {
   if (err) return console.log(err)
   db = database
@@ -39,6 +47,8 @@ MongoClient.connect(MONGODBURL, (err, database) => {
   })
 });
 
+
+				// PARAMETRAGE \\
 
 /** bodyParser.urlencoded(options)
  * Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST)
@@ -77,13 +87,13 @@ app.use(session({secret: 'C&c1&stl@b1t&d4st@g1a1r&'}))//Session Initialisation
     res.end('Vous êtes à l\'accueil');
 	
 }).get('/todo', function(req, res) { 
-    //res.render('todo.ejs', {todolist: req.session.todolist});  =>Implémentation du reminder
+    //res.render('todo.ejs', {todolist: req.session.todolist});  => Implémentation du reminder
 	
 }).get('/makeimport', function(req, res) {  //L'idée est de permetre à un utilisateur d'importé de la data CSV si besoin 
 	res.setHeader('Content-Type', 'text/plain');
     res.end('WIP');
 	
-}).get('/request', function(req, res) {
+}).get('/request', function(req, res) {//Route pour la recherche
 	res.setHeader('Content-Type', 'text/html');
 	res.render('queryFormular.ejs');
 	
@@ -96,12 +106,11 @@ app.use(session({secret: 'C&c1&stl@b1t&d4st@g1a1r&'}))//Session Initialisation
 //Affichage des post et traitement des données
 .post('/request/queryForm',function(req,res){
 	if(req.body.query != ''){
-		var value = req.body.query;
-		res.setHeader('Content-Type', 'text/html');
-		res.end(""+req.body.query);
-		DBtools.findEntreprise(db,req.body.query,function(){});
-		//console.log(typeof DBtools.findEntreprise);
-		console.log(typeof DBtools.findEntreprise); // => 'function'
+		var value = req.body.query;		
+		DBtools.findEntreprise(db,value,function(doc){
+			res.setHeader('Content-Type', 'text/html');
+			res.end('Query :'+value+'===> Result :'+JSON.stringify(doc));
+		});
 	}else{
 		res.setHeader('Content-Type', 'text/html');
 		res.end('ERROR');
