@@ -84,7 +84,7 @@ app.use(session({secret: 'C&c1&stl@b1t&d4st@g1a1r&'}))//Session Initialisation
 //Affichage des gets
 .get('/', function(req, res) {
     res.setHeader('Content-Type', 'text/plain');
-    res.end('Vous êtes à l\'accueil');
+	res.render('menu.ejs', {body: res.render('chambre.ejs')});
 	
 }).get('/todo', function(req, res) { 
     //res.render('todo.ejs', {todolist: req.session.todolist});  => Implémentation du reminder
