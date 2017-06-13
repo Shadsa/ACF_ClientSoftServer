@@ -103,7 +103,7 @@ app.use(session({secret: 'C&c1&stl@b1t&d4st@g1a1r&'}))//Session Initialisation
 })
 
 
-//Affichage des post et traitement des données
+//Affichage des post et traitement des données MANGO
 .post('/request/queryForm',function(req,res){
 	if(req.body.query != ''){
 		var value = req.body.query;		
@@ -117,6 +117,29 @@ app.use(session({secret: 'C&c1&stl@b1t&d4st@g1a1r&'}))//Session Initialisation
 	}
 	
 })
+
+
+// API GET
+.get('/api', function(req, res) {
+	res.setHeader('Content-Type', 'text/html');
+    res.end('WIP');
+})
+
+//API POST
+.post('/api/json/:outlookdata',function(req,res){
+	if(req.body.query != ''){
+		var value = req.body.query;		
+		DBtools.findEntreprise(db,value,function(doc){
+			res.setHeader('Content-Type', 'text/html');
+			res.end('Query :'+value+'===> Result :'+JSON.stringify(doc));
+		});
+	}else{
+		res.setHeader('Content-Type', 'text/html');
+		res.end('ERROR');
+	}
+	
+})
+
 
 
 
