@@ -1,0 +1,16 @@
+C:\Travail\ACF_Project\ACF_APP\ACF_ClientSoftServer\OutlookAddInACF\OutlookAddInACF\bin\Debug\OutlookAddInACF.dll
+C:\Travail\ACF_Project\ACF_APP\ACF_ClientSoftServer\OutlookAddInACF\OutlookAddInACF\bin\Debug\OutlookAddInACF.pdb
+C:\Travail\ACF_Project\ACF_APP\ACF_ClientSoftServer\OutlookAddInACF\OutlookAddInACF\bin\Debug\OutlookAddInACF.dll.manifest
+C:\Travail\ACF_Project\ACF_APP\ACF_ClientSoftServer\OutlookAddInACF\OutlookAddInACF\bin\Debug\OutlookAddInACF.vsto
+C:\Travail\ACF_Project\ACF_APP\ACF_ClientSoftServer\OutlookAddInACF\OutlookAddInACF\bin\Debug\Microsoft.Office.Tools.Common.dll
+C:\Travail\ACF_Project\ACF_APP\ACF_ClientSoftServer\OutlookAddInACF\OutlookAddInACF\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Travail\ACF_Project\ACF_APP\ACF_ClientSoftServer\OutlookAddInACF\OutlookAddInACF\bin\Debug\Microsoft.Office.Tools.dll
+C:\Travail\ACF_Project\ACF_APP\ACF_ClientSoftServer\OutlookAddInACF\OutlookAddInACF\bin\Debug\Microsoft.Office.Tools.Outlook.dll
+C:\Travail\ACF_Project\ACF_APP\ACF_ClientSoftServer\OutlookAddInACF\OutlookAddInACF\bin\Debug\Microsoft.Office.Tools.Outlook.v4.0.Utilities.dll
+C:\Travail\ACF_Project\ACF_APP\ACF_ClientSoftServer\OutlookAddInACF\OutlookAddInACF\bin\Debug\Microsoft.Office.Tools.v4.0.Framework.dll
+C:\Travail\ACF_Project\ACF_APP\ACF_ClientSoftServer\OutlookAddInACF\OutlookAddInACF\bin\Debug\Microsoft.VisualStudio.Tools.Applications.Runtime.dll
+C:\Travail\ACF_Project\ACF_APP\ACF_ClientSoftServer\OutlookAddInACF\OutlookAddInACF\obj\Debug\OutlookAddInACF.csprojResolveAssemblyReference.cache
+C:\Travail\ACF_Project\ACF_APP\ACF_ClientSoftServer\OutlookAddInACF\OutlookAddInACF\obj\Debug\OutlookAddInACF.Properties.Resources.resources
+C:\Travail\ACF_Project\ACF_APP\ACF_ClientSoftServer\OutlookAddInACF\OutlookAddInACF\obj\Debug\OutlookAddInACF.csproj.GenerateResource.Cache
+C:\Travail\ACF_Project\ACF_APP\ACF_ClientSoftServer\OutlookAddInACF\OutlookAddInACF\obj\Debug\OutlookAddInACF.dll
+C:\Travail\ACF_Project\ACF_APP\ACF_ClientSoftServer\OutlookAddInACF\OutlookAddInACF\obj\Debug\OutlookAddInACF.pdb
