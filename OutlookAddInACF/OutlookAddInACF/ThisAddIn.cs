@@ -5,19 +5,55 @@ using System.Text;
 using System.Xml.Linq;
 using Outlook = Microsoft.Office.Interop.Outlook;
 using Office = Microsoft.Office.Core;
+using System.Windows.Forms;
+using System.Net.Http;
+using Newtonsoft.Json;
+using Microsoft.Office.Tools.Ribbon;
 
 namespace OutlookAddInACF
 {
     public partial class ThisAddIn
     {
-        Outlook.Inspectors inspectors;
-        
+
+        //APICall API; => A mettre dans chaque methode , ou alors a passer en param.
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
-            inspectors = this.Application.Inspectors;
+            // Get the Application object
+            Outlook.Application application = this.Application;
+
+            // Get the Inspector object
+            Outlook.Inspectors inspectors = application.Inspectors;
+
+            // Get the active Inspector object
+            Outlook.Inspector activeInspector = application.ActiveInspector();
+            if (activeInspector != null)
+            {
+                // Get the title of the active item when the Outlook start.
+                MessageBox.Show("Active inspector: " + activeInspector.Caption);
+            }
+
+            // Get the Explorer objects
+            Outlook.Explorers explorers = application.Explorers;
+
+            // Get the active Explorer object
+            Outlook.Explorer activeExplorer = application.ActiveExplorer();
+            if (activeExplorer != null)
+            {
+                // Get the title of the active folder when the Outlook start.
+                MessageBox.Show("Active explorer: " + activeExplorer.Caption);
+                
+            }
+
+
+            // ...
+            // Add a new Inspector to the application
             inspectors.NewInspector +=
-            new Microsoft.Office.Interop.Outlook.InspectorsEvents_NewInspectorEventHandler(Inspectors_NewInspector);
+                new Outlook.InspectorsEvents_NewInspectorEventHandler(
+                    Inspectors_AddTextToNewMail);
+
+            application.ItemSend +=
+        new Outlook.ApplicationEvents_11_ItemSendEventHandler(ItemSend_BeforeSend);
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
@@ -26,19 +62,32 @@ namespace OutlookAddInACF
             //    doit s'exécuter à la fermeture d'Outlook (consultez https://go.microsoft.com/fwlink/?LinkId=506785)
         }
 
-        void Inspectors_NewInspector(Microsoft.Office.Interop.Outlook.Inspector Inspector)
+        #region Events
+        void Inspectors_AddTextToNewMail(Outlook.Inspector inspector)
         {
-            Outlook.MailItem mailItem = Inspector.CurrentItem as Outlook.MailItem;
+            // Get the current item for this Inspecto object and check if is type
+            // of MailItem
+            Outlook.MailItem mailItem = inspector.CurrentItem as Outlook.MailItem;
             if (mailItem != null)
             {
                 if (mailItem.EntryID == null)
                 {
-                    mailItem.Subject = "This text was added by using code";
-                    mailItem.Body = "This text was added by using code";
+                    mailItem.Subject = "My subject text";
+                    mailItem.Body = "My body text";
                 }
-
             }
         }
+        void ItemSend_BeforeSend(object item, ref bool cancel)
+        {
+            Outlook.MailItem mailItem = (Outlook.MailItem)item;
+           
+            if (mailItem != null)
+            {
+                mailItem.Body += "Modified by GettingStartedOutlookAddIn";
+            }
+            cancel = false;
+        }
+        #endregion
 
         #region Code généré par VSTO
 
@@ -54,6 +103,5 @@ namespace OutlookAddInACF
 
         #endregion
 
-        public Outlook.Inspectors Inspectors { get => inspectors; set => inspectors = value; }
     }
 }

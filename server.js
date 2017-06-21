@@ -118,7 +118,7 @@ app.use(session({secret: 'C&c1&stl@b1t&d4st@g1a1r&'}))//Session Initialisation
 	
 })
 
-//=> ptet changer l'API de palce et la mettre dans un autre fichier ?
+//=> ptet changer l'API de place et la mettre dans un autre fichier ?
 
 
 // API GET
