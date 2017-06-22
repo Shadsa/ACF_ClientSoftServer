@@ -30,6 +30,15 @@ var MONGODBURL = 'mongodb://localhost:27017/ACF_Test';
 
 
 module.exports = {
+  InsertData: function(db,query,callback) {
+		
+	},
+  InsertContact: function(db,query,callback) {
+		
+	},
+  InsertMail: function(db,query,callback) {
+		
+	},
 	findEntreprise: function(db,query,callback) {
 		var cursor =db.collection('test').find({"Entreprise":""+query});
 		var doc = [];

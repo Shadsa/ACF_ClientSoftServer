@@ -72,6 +72,7 @@ app.use(bodyParser.json());
 
 
 app.use(session({secret: 'C&c1&stl@b1t&d4st@g1a1r&'}))//Session Initialisation
+
 //Session Manipulation
 /*
 .use(function(req, res, next){
@@ -97,9 +98,6 @@ app.use(session({secret: 'C&c1&stl@b1t&d4st@g1a1r&'}))//Session Initialisation
 	res.setHeader('Content-Type', 'text/html');
 	res.render('queryFormular.ejs');
 	
-}).get('/queryAnswer', function(req, res) {
-	res.setHeader('Content-Type', 'text/html');
-    res.end('WIP');
 })
 
 
@@ -125,20 +123,31 @@ app.use(session({secret: 'C&c1&stl@b1t&d4st@g1a1r&'}))//Session Initialisation
 .get('/api', function(req, res) {
 	res.setHeader('Content-Type', 'text/html');
     res.end('WIP');
+}).get('/api/json', function(req, res) {
+	var o = JSON.stringify(req.body)
+	fs.writeFile("./documents/doc.json", o, function(err) {
+		if(err) {
+			return console.log(err);
+		}
+
+		console.log("The file was saved!");
+	}); 
+	res.setHeader('Content-Type', 'text/html');
+    res.end('WIP');
 })
 
 //API POST
-.post('/api/json/:outlookdata',function(req,res){
-	if(req.body.query != ''){
-		var value = req.body.query;		
-		DBtools.findEntreprise(db,value,function(doc){
-			res.setHeader('Content-Type', 'text/html');
-			res.end('Query :'+value+'===> Result :'+JSON.stringify(doc));
-		});
-	}else{
-		res.setHeader('Content-Type', 'text/html');
-		res.end('ERROR');
-	}
+.post('/api/json',function(req,res){
+	var o = JSON.stringify(req.body)
+	fs.writeFile("./documents/doc.json", o, function(err) {
+		if(err) {
+			return console.log(err);
+		}
+
+		console.log("The file was saved!");
+	}); 
+	res.setHeader('Content-Type', 'text/html');
+    res.end('Le mail à bien été envoyé au serveur !');
 	
 })
 
@@ -164,6 +173,9 @@ app.use(session({secret: 'C&c1&stl@b1t&d4st@g1a1r&'}))//Session Initialisation
 	csv.parse(obj,callback);
 	
 })
+
+
+
 
 // ... Tout le code de gestion des routes se trouve au-dessus
 
