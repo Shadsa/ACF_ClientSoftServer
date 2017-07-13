@@ -6,22 +6,39 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="menu">
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/todo">Reminders</a></li>
+            <li><a href="/makeimport/importForm">Import Entreprise</a></li>
+            <li><a href="/request">Recherche</a></li>
+        </ul>
+    </div>
   <p> In order to use this function, just type any related word to your research into the research fields. Then, ask for a separated research or a full text 
 one</p>
    
-      <form action="/request/queryForm" method="post"> <!--pas de enctype ni de multdata car pas supporté par le bodyparser de expresstgf-->
+      <form action="/request/queryForm" method="post"> <!--pas de enctype ni de multdata car pas supportï¿½ par le bodyparser de expresstgf-->
          <fieldset>
             <label for="query">Research:</label>
             <input type="text" id="query" name="query" autofocus />
 			
 			<div class="form-group">
 				<label>Query type :</label>
-				<div class="radio">
 					<label for="separated"><input type="radio" name="querytype" id="separated" value="S">Separated</label>
-				</div>
-				<div class="radio">
 					<label for="fulltext"><input type="radio" name="querytype" id="fulltext" value="F" >Full-text</label>
-				</div>
+
+			</div>
+
+      <div class="form-group">
+				<label>Query Object :</label>
+				<label><input type="radio" name="queryobject" value="Mail" >Mail</label>
+				<label><input type="radio" name="queryobject" value="Contact">Contact</label>
+				<label><input type="radio" name="queryobject" value="Object" >Object</label>
+			</div>
+
+      <div class="form-group">
+				<label>Prospection Option :</label>
+					<label><input type="radio" name="Client" id="client" value="1" >Client (yes/no)</label>
 			</div>
 			
             <input type="submit" value="Ask Skynet" />

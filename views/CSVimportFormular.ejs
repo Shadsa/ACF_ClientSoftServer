@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>CSV Import tool</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="menu">
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/todo">Reminders</a></li>
+            <li><a href="/makeimport/importForm">Import Entreprise</a></li>
+            <li><a href="/request">Recherche</a></li>
+        </ul>
+    </div>
+  <p> In order to use this function, select a file to export on server for configure Contact collection</p>
+   
+      <form 
+      ref='uploadForm' 
+      id='uploadForm' action="/makeimport/handler" method="post" encType="multipart/form-data"> <!--pas de enctype ni de multdata car pas support� par le bodyparser de expresstgf-->
+         <fieldset>
+            <input type="file" id="query" name="query" value="Select File" />
+			
+            <input type="submit" value="Ask Skynet" />
+         </fieldset>
+      </form>
+</body>
+</html>

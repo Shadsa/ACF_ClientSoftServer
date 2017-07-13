@@ -6,10 +6,14 @@ var DBtools = require('./DBtools.js'); //===>inclusion des querys et outils de p
 	querystring = require('querystring');
 	session = require('cookie-session'); // Charge le middleware de sessions
 	bodyParser = require('body-parser'); // Charge le middleware de gestion des paramètres
+	multipart = require('connect-multiparty'); //charge le middleware de gestion de fichier d'upload (attention, création de fichier temporaire)
+	multipartMiddleware = multipart();
+	menu = fs.readFileSync("./views/menu.ejs", "utf8");
 
 
 //var Mongo
-var MONGODBURL = 'mongodb://localhost:27017/ACF_Test';
+var MongoDBName = 'ACF_DB',
+	MONGODBURL = 'mongodb://localhost:27017/'+MongoDBName;
 	MongoClient = require('mongodb').MongoClient,
     Server = require('mongodb').Server,
     ReplSetServers = require('mongodb').ReplSetServers,
@@ -38,12 +42,14 @@ var PORT = 8080;
 
 
 
-//Démarrage de la base Mongo, je ne la ferme pas ensuite (accés facile avec db directe). Si utilisateur il y'a, on gère la connexion ici.
+//Démarrage de la base Mongo, je ne la ferme pas ensuite (accés facile avec db directe). Si utilisateur 
+//il y'a, on gère la connexion ici. Crée la BD si inexistante
 MongoClient.connect(MONGODBURL, (err, database) => {
   if (err) return console.log(err)
-  db = database
+  db = database;
+  DBtools.DBInitialisation(db);  
   app.listen(PORT, () => {
-    console.log('listening on ' + PORT)
+    console.log('listening on ' + PORT);
   })
 });
 
@@ -68,6 +74,24 @@ app.use(bodyParser.json());
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 					// MAIN APPLICATION \\
 
 
@@ -82,42 +106,138 @@ app.use(session({secret: 'C&c1&stl@b1t&d4st@g1a1r&'}))//Session Initialisation
     next();
 })*/
 
-//Affichage des gets
+//Affichage des get
 .get('/', function(req, res) {
-    res.setHeader('Content-Type', 'text/plain');
-	res.render('menu.ejs', {body: res.render('chambre.ejs')});
 	
-}).get('/todo', function(req, res) { 
-    //res.render('todo.ejs', {todolist: req.session.todolist});  => Implémentation du reminder
+    res.setHeader('Content-Type', 'text/html');
+	res.render('mainpage.ejs');
 	
-}).get('/makeimport', function(req, res) {  //L'idée est de permetre à un utilisateur d'importé de la data CSV si besoin 
-	res.setHeader('Content-Type', 'text/plain');
-    res.end('WIP');
+}).get('/makeimport/importForm', function(req, res) {//L'idée est de permetre à un utilisateur d'importé de la data CSV si besoin 
+		res.setHeader('Content-Type', 'text/html');
+		res.render('CSVimportFormular.ejs');
+
+}).get('/makeimport/useData', function(req, res) {//L'idée est de permetre à un utilisateur d'importé de la data CSV si besoin 
+		if(req.query.answer == 1){
+			DBtools.LoadContact(db,"./documents/CSV/EntrepriseExport.csv");
+		}		
+		res.setHeader('Content-Type', 'text/html');
+		res.render('CSVLoaderAnswer.ejs' ,{answer : req.query.answer});	
 	
 }).get('/request', function(req, res) {//Route pour la recherche
 	res.setHeader('Content-Type', 'text/html');
 	res.render('queryFormular.ejs');
 	
+}).get('/contactView', function(req, res) {//Route pour la recherche
+	res.setHeader('Content-Type', 'text/html');
+	res.render('queryFormular.ejs');
+	
+}).get('/mailView', function(req, res) {//Route pour la recherche
+	res.setHeader('Content-Type', 'text/html');
+	res.render('queryFormular.ejs');
+	
+}).get('/todoView', function(req, res) {//Route pour la recherche
+	 //res.render('todo.ejs', {todolist: req.session.todolist});  => Implémentation du reminder
+	
 })
 
 
-//Affichage des post et traitement des données MANGO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Point d'accée de la requête Mango et redirection vers d'autre traitement coté DB.
 .post('/request/queryForm',function(req,res){
 	if(req.body.query != ''){
 		var value = req.body.query;		
-		DBtools.findEntreprise(db,value,function(doc){
-			res.setHeader('Content-Type', 'text/html');
-			res.end('Query :'+value+'===> Result :'+JSON.stringify(doc));
-		});
+		var QueryObject=req.body.queryobject;
+		var doc;
+		var display = function(doc){
+			if(doc == undefined){
+				res.setHeader('Content-Type', 'text/html');
+				res.end(menu+'<p>ERROR !!! CHECK LOG</p>');
+			}else{
+				console.log(doc)
+				res.setHeader('Content-Type', 'text/html');
+				res.end(menu+'<p>Asked query :</p>'+QueryObject+'<p>Query With Multiple Engine  :'+value+'===> Result :'+JSON.stringify(doc["ContactPerEntreprise"])+'</p>');
+			} 
+			if(doc.ContactPerEntreprise != []){
+
+			}
+
+			if(doc.ContactPerMail != []){
+
+			}
+
+			if(doc.ContactPerMail != []){
+				
+			}
+
+			
+		}
+		if(QueryObject == "Mail"){
+			DBtools.multipleQueryEngine(db,"Mail",value,display);
+		}else if(QueryObject=="Contact"){
+			DBtools.multipleQueryEngine(db,"Contact",value,display);
+		}else if(QueryObject=="Object"){
+			DBtools.multipleQueryEngine(db,"Object",value,display);
+		}
+		
 	}else{
-		res.setHeader('Content-Type', 'text/html');
-		res.end('ERROR');
+		affichage(undefined);
 	}
 	
 })
 
-//=> ptet changer l'API de place et la mettre dans un autre fichier ?
+//Post d'upload CSV
+.post('/makeimport/handler',multipartMiddleware,function(req,res){
+	if(req.files.query != ''){
+		var path = req.files.query.path
+		var file = fs.readFileSync(path);
+		fs.writeFile("./documents/CSV/EntrepriseExport.csv",file,function(err) {
+			if(err) {
+				return console.log(err);
+			}
+			fs.unlinkSync(path); // a cause d'une copie temporaire crée par le middleware.
+		});
+		res.setHeader('Content-Type', 'text/html');
+		res.render('CSVLoader.ejs');
+	}
+	
+})
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					////////// API PART \\\\\\\\\\\\\
 
 // API GET
 .get('/api', function(req, res) {
@@ -137,9 +257,10 @@ app.use(session({secret: 'C&c1&stl@b1t&d4st@g1a1r&'}))//Session Initialisation
 })
 
 //API POST
-.post('/api/json',function(req,res){
+.post('/api/mail',function(req,res){
 	var o = JSON.stringify(req.body)
-	fs.writeFile("./documents/doc.json", o, function(err) {
+	var jsonObject = req.body;
+	fs.writeFile("./documents/doctmp.json", o, function(err) {
 		if(err) {
 			return console.log(err);
 		}
@@ -149,7 +270,33 @@ app.use(session({secret: 'C&c1&stl@b1t&d4st@g1a1r&'}))//Session Initialisation
 	res.setHeader('Content-Type', 'text/html');
     res.end('Le mail à bien été envoyé au serveur !');
 	
+}).post('/api/contact',function(req,res){
+	
+	
+}).post('/api/reminder',function(req,res){
+	
+	
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -173,8 +320,6 @@ app.use(session({secret: 'C&c1&stl@b1t&d4st@g1a1r&'}))//Session Initialisation
 	csv.parse(obj,callback);
 	
 })
-
-
 
 
 // ... Tout le code de gestion des routes se trouve au-dessus

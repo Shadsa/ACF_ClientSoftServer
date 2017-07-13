@@ -153,10 +153,34 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="ACF_Ribbon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ACF_Ribbon.Designer.cs">
+      <DependentUpon>ACF_Ribbon.cs</DependentUpon>
+    </Compile>
     <Compile Include="APICallLibrary.cs" />
+    <Compile Include="contactForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="contactForm.Designer.cs">
+      <DependentUpon>contactForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reminderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reminderForm.Designer.cs">
+      <DependentUpon>reminderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <EmbeddedResource Include="ACF_Ribbon.resx">
+      <DependentUpon>ACF_Ribbon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="contactForm.resx">
+      <DependentUpon>contactForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -166,9 +190,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ACFRibbon.resx">
-      <DependentUpon>ACFRibbon.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="OutlookAddInACF_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -178,12 +199,6 @@
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="ACFRibbon.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ACFRibbon.Designer.cs">
-      <DependentUpon>ACFRibbon.cs</DependentUpon>
     </Compile>
     <Compile Include="ThisAddIn.cs">
       <SubType>Code</SubType>
