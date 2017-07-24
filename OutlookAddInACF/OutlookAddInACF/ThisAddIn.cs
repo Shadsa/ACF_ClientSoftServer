@@ -14,7 +14,7 @@ namespace OutlookAddInACF
 {
     public partial class ThisAddIn
     {
-
+        
         //APICall API; => A mettre dans chaque methode , ou alors a passer en param.
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)

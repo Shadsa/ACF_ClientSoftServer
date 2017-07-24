@@ -12,6 +12,11 @@ namespace OutlookAddInACF
 {
     public partial class contactForm : Form
     {
+        private String[] data;
+        public  String[] getData()
+        {
+            return data;
+        }
         public contactForm()
         {
             InitializeComponent();

@@ -5,10 +5,13 @@ using System.Text;
 using Outlook = Microsoft.Office.Interop.Outlook;
 using Microsoft.Office.Tools.Ribbon;
 using System.Windows.Forms;
+using System.Windows;
 
 namespace OutlookAddInACF
 {
-    public partial class ACF_Ribbon
+
+
+    public partial class ACF_Ribbon 
     {
         private void ACF_Ribbon_Load(object sender, RibbonUIEventArgs e)
         {
@@ -84,6 +87,33 @@ namespace OutlookAddInACF
             MessageBox.Show(expMessage);
 
         }
+        private void SauvegarderPJ_Click(object sender, RibbonControlEventArgs e)
+        {
+
+        }
+        private void ParametreEnvoisMailAuto_Click(object sender, RibbonControlEventArgs e)
+        {
+
+        }
+        private void ExportFile_Click(object sender, RibbonControlEventArgs e)
+        {
+            OpenFileDialog form = new OpenFileDialog();
+            form.ShowDialog();
+        }
+        private void AddReminder_Click(object sender, RibbonControlEventArgs e)
+        {
+            reminderForm form = new reminderForm();
+            form.Show();
+        }
+        private void AddContact_Click(object sender, RibbonControlEventArgs e)
+        {
+            contactForm form = new contactForm();
+            form.Show();
+        }
+        
+
+
+
 
     }
 }

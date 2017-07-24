@@ -202,39 +202,46 @@
             // 
             // clientvalue
             // 
+            this.clientvalue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.clientvalue.AutoSize = true;
             this.clientvalue.Checked = true;
             this.clientvalue.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.clientvalue.Location = new System.Drawing.Point(257, 212);
+            this.clientvalue.Location = new System.Drawing.Point(257, 213);
             this.clientvalue.Name = "clientvalue";
-            this.clientvalue.Size = new System.Drawing.Size(61, 17);
+            this.clientvalue.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.clientvalue.Size = new System.Drawing.Size(97, 17);
             this.clientvalue.TabIndex = 19;
-            this.clientvalue.Text = "Client ?";
+            this.clientvalue.Text = "            ? Client";
+            this.clientvalue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.clientvalue.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(138, 329);
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.button1.Location = new System.Drawing.Point(155, 302);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 20;
-            this.button1.Text = "Validation";
+            this.button1.Text = "Valider";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(257, 329);
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.button2.Location = new System.Drawing.Point(270, 302);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 21;
-            this.button2.Text = "Abandonner";
+            this.button2.Text = "Annuler";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // contactForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 461);
+            this.ClientSize = new System.Drawing.Size(484, 361);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.clientvalue);

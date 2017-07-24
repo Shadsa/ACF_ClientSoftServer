@@ -18,3 +18,4 @@ C:\Travail\ACF_Project\ACF_APP\ACF_ClientSoftServer\OutlookAddInACF\OutlookAddIn
 C:\Travail\ACF_Project\ACF_APP\ACF_ClientSoftServer\OutlookAddInACF\OutlookAddInACF\bin\Debug\Newtonsoft.Json.xml
 C:\Travail\ACF_Project\ACF_APP\ACF_ClientSoftServer\OutlookAddInACF\OutlookAddInACF\obj\Debug\OutlookAddInACF.ACF_Ribbon.resources
 C:\Travail\ACF_Project\ACF_APP\ACF_ClientSoftServer\OutlookAddInACF\OutlookAddInACF\obj\Debug\OutlookAddInACF.contactForm.resources
+C:\Travail\ACF_Project\ACF_APP\ACF_ClientSoftServer\OutlookAddInACF\OutlookAddInACF\obj\Debug\OutlookAddInACF.reminderForm.resources

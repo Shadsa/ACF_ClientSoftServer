@@ -138,6 +138,9 @@ app.use(session({secret: 'C&c1&stl@b1t&d4st@g1a1r&'}))//Session Initialisation
 }).get('/todoView', function(req, res) {//Route pour la recherche
 	 //res.render('todo.ejs', {todolist: req.session.todolist});  => Implémentation du reminder
 	
+}).get('/addondl', function(req, res) {//Route pour la recherche
+	 //res.render('todo.ejs', {todolist: req.session.todolist});  => Implémentation du reminder
+	
 })
 
 

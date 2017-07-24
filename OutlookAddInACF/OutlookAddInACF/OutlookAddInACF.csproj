@@ -166,6 +166,12 @@
     <Compile Include="contactForm.Designer.cs">
       <DependentUpon>contactForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="contactForm2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="contactForm2.Designer.cs">
+      <DependentUpon>contactForm2.cs</DependentUpon>
+    </Compile>
     <Compile Include="reminderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +196,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="reminderForm.resx">
+      <DependentUpon>reminderForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="OutlookAddInACF_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

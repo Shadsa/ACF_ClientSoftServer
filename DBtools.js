@@ -127,17 +127,16 @@ var DBInitialisation = function(db) {
 		
 	}
 	var findContactPerEntreprise= function(db,query,callback) {
-		var val = ""+query+"/i";
+		var val = query;
 		//permet d'obtenir des matchs incomplet (regexp) et des matchs complet
-		var cursor =db.collection('Contact').find({$or:[{Entreprise: new RegExp(val)},{Entreprise: query}]});
+		var cursor =db.collection('Contact').find({Entreprise: new RegExp(val)});
 		var doc = [];
 		var i=0;
 		cursor.each(function(err,item) {
 			assert.equal(err, null);
 		  if (item != null) {
 				doc[i] = item;
-				console.dir(doc[i]);
-				
+				i++;
 			}else{
 				
 				callback(doc);
@@ -145,16 +144,15 @@ var DBInitialisation = function(db) {
 		});
 	}
   var findContactPerName= function(db,query,callback) {
-		var val = ""+query+"/i";
+		var val = query;
 		//permet d'obtenir des matchs incomplet (regexp) et des matchs complet
-		var cursor =db.collection('Contact').find({$or:[{Name: new RegExp(val)},{Name: query}]});
+		var cursor =db.collection('Contact').find({Name: new RegExp(val)});
 		var doc = [];
 		var i=0;
 		cursor.each(function(err,item) {
 			assert.equal(err, null);
 		  if (item != null) {
 				doc[i] = item;
-				console.dir(doc[i]);
 				i++;
 			}else{				
 				callback(doc);
@@ -162,16 +160,15 @@ var DBInitialisation = function(db) {
 		});
 	}
   var findContactPerMail= function(db,query,callback) {
-		var val = ""+query+"/i";
+		var val = query;
 		//permet d'obtenir des matchs incomplet (regexp) et des matchs complet
-		var cursor =db.collection('Contact').find({$or:[{Mail: new RegExp(val)},{Mail: query}]});
+		var cursor =db.collection('Contact').find({Mail: new RegExp(val)});
 		var doc = [];
 		var i=0;
 		cursor.each(function(err,item) {
 			assert.equal(err, null);
 		  if (item != null) {
 				doc[i] = item;
-				console.dir(doc[i]);
 				i++;
 			}else{
 				callback(doc);
@@ -192,13 +189,17 @@ var DBInitialisation = function(db) {
 			assert.equal(err, null);
 		  if (item != null) {
 				doc[i] = item;
-				console.dir(doc[i]);
 				i++;
 			}else{
 				callback(doc);
 			}
 		});
 	}
+
+
+
+
+
 
 
 

@@ -36,13 +36,13 @@
         {
             this.tab1 = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
+            this.SauvegarderPJ = this.Factory.CreateRibbonButton();
             this.SauvegarderMail = this.Factory.CreateRibbonButton();
             this.ParametreEnvoisMailAuto = this.Factory.CreateRibbonButton();
             this.group2 = this.Factory.CreateRibbonGroup();
+            this.ExportFile = this.Factory.CreateRibbonButton();
             this.AddReminder = this.Factory.CreateRibbonButton();
             this.AddContact = this.Factory.CreateRibbonButton();
-            this.ExportFile = this.Factory.CreateRibbonButton();
-            this.SauvegarderPJ = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
             this.group2.SuspendLayout();
@@ -64,6 +64,14 @@
             this.group1.Label = "Sauvegarde/Option";
             this.group1.Name = "group1";
             // 
+            // SauvegarderPJ
+            // 
+            this.SauvegarderPJ.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.SauvegarderPJ.Label = "Sauvegarder Pièce Jointe";
+            this.SauvegarderPJ.Name = "SauvegarderPJ";
+            this.SauvegarderPJ.ShowImage = true;
+            this.SauvegarderPJ.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.SauvegarderPJ_Click);
+            // 
             // SauvegarderMail
             // 
             this.SauvegarderMail.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
@@ -78,6 +86,7 @@
             this.ParametreEnvoisMailAuto.Label = "Paramétre d\'envois Auto";
             this.ParametreEnvoisMailAuto.Name = "ParametreEnvoisMailAuto";
             this.ParametreEnvoisMailAuto.ShowImage = true;
+            this.ParametreEnvoisMailAuto.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ParametreEnvoisMailAuto_Click);
             // 
             // group2
             // 
@@ -87,12 +96,21 @@
             this.group2.Label = "Envois de donner (APP ACF)";
             this.group2.Name = "group2";
             // 
+            // ExportFile
+            // 
+            this.ExportFile.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.ExportFile.Label = "Exporter un fichier";
+            this.ExportFile.Name = "ExportFile";
+            this.ExportFile.ShowImage = true;
+            this.ExportFile.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ExportFile_Click);
+            // 
             // AddReminder
             // 
             this.AddReminder.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
             this.AddReminder.Label = "Ajouter un Reminder";
             this.AddReminder.Name = "AddReminder";
             this.AddReminder.ShowImage = true;
+            this.AddReminder.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.AddReminder_Click);
             // 
             // AddContact
             // 
@@ -100,25 +118,12 @@
             this.AddContact.Label = "Ajouter Contact";
             this.AddContact.Name = "AddContact";
             this.AddContact.ShowImage = true;
-            // 
-            // ExportFile
-            // 
-            this.ExportFile.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.ExportFile.Label = "Exporter un fichier";
-            this.ExportFile.Name = "ExportFile";
-            this.ExportFile.ShowImage = true;
-            // 
-            // SauvegarderPJ
-            // 
-            this.SauvegarderPJ.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.SauvegarderPJ.Label = "Sauvegarder Pièce Jointe";
-            this.SauvegarderPJ.Name = "SauvegarderPJ";
-            this.SauvegarderPJ.ShowImage = true;
+            this.AddContact.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.AddContact_Click);
             // 
             // ACF_Ribbon
             // 
             this.Name = "ACF_Ribbon";
-            this.RibbonType = "Microsoft.Outlook.Mail.Read";
+            this.RibbonType = "Microsoft.Outlook.Explorer, Microsoft.Outlook.Task";
             this.Tabs.Add(this.tab1);
             this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.ACF_Ribbon_Load);
             this.tab1.ResumeLayout(false);
