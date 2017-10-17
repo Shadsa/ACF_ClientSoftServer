@@ -28,37 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ContactName = new System.Windows.Forms.TextBox();
+            this.data_Mail_Box = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.data_Entreprise_Box = new System.Windows.Forms.TextBox();
+            this.data_Adresse_Box = new System.Windows.Forms.TextBox();
+            this.data_CP_Box = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.data_Ville_Box = new System.Windows.Forms.TextBox();
+            this.data_Fonction_Box = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.clientvalue = new System.Windows.Forms.CheckBox();
+            this.data_Civilite_Box = new System.Windows.Forms.TextBox();
+            this.data_Tel_Box = new System.Windows.Forms.TextBox();
+            this.data_Nom_Box = new System.Windows.Forms.TextBox();
+            this.data_clientvalue = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // ContactName
+            // data_Mail_Box
             // 
-            this.ContactName.Location = new System.Drawing.Point(337, 173);
-            this.ContactName.Name = "ContactName";
-            this.ContactName.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.ContactName.Size = new System.Drawing.Size(100, 20);
-            this.ContactName.TabIndex = 0;
-            this.ContactName.TextChanged += new System.EventHandler(this.ContactName_TextChanged);
+            this.data_Mail_Box.Location = new System.Drawing.Point(337, 173);
+            this.data_Mail_Box.Name = "data_Mail_Box";
+            this.data_Mail_Box.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.data_Mail_Box.Size = new System.Drawing.Size(100, 20);
+            this.data_Mail_Box.TabIndex = 0;
+            this.data_Mail_Box.TextChanged += new System.EventHandler(this.ContactName_TextChanged);
             // 
             // label1
             // 
@@ -69,27 +70,27 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Nom :";
             // 
-            // textBox1
+            // data_Entreprise_Box
             // 
-            this.textBox1.Location = new System.Drawing.Point(113, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.data_Entreprise_Box.Location = new System.Drawing.Point(113, 42);
+            this.data_Entreprise_Box.Name = "data_Entreprise_Box";
+            this.data_Entreprise_Box.Size = new System.Drawing.Size(100, 20);
+            this.data_Entreprise_Box.TabIndex = 2;
             // 
-            // textBox2
+            // data_Adresse_Box
             // 
-            this.textBox2.Location = new System.Drawing.Point(113, 72);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.data_Adresse_Box.Location = new System.Drawing.Point(113, 72);
+            this.data_Adresse_Box.Name = "data_Adresse_Box";
+            this.data_Adresse_Box.Size = new System.Drawing.Size(100, 20);
+            this.data_Adresse_Box.TabIndex = 3;
+            this.data_Adresse_Box.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox3
+            // data_CP_Box
             // 
-            this.textBox3.Location = new System.Drawing.Point(113, 103);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 4;
+            this.data_CP_Box.Location = new System.Drawing.Point(113, 103);
+            this.data_CP_Box.Name = "data_CP_Box";
+            this.data_CP_Box.Size = new System.Drawing.Size(100, 20);
+            this.data_CP_Box.TabIndex = 4;
             // 
             // label2
             // 
@@ -119,19 +120,19 @@
             this.label4.Text = "CP :";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // textBox4
+            // data_Ville_Box
             // 
-            this.textBox4.Location = new System.Drawing.Point(113, 137);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 8;
+            this.data_Ville_Box.Location = new System.Drawing.Point(113, 137);
+            this.data_Ville_Box.Name = "data_Ville_Box";
+            this.data_Ville_Box.Size = new System.Drawing.Size(100, 20);
+            this.data_Ville_Box.TabIndex = 8;
             // 
-            // textBox5
+            // data_Fonction_Box
             // 
-            this.textBox5.Location = new System.Drawing.Point(337, 103);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 9;
+            this.data_Fonction_Box.Location = new System.Drawing.Point(337, 103);
+            this.data_Fonction_Box.Name = "data_Fonction_Box";
+            this.data_Fonction_Box.Size = new System.Drawing.Size(100, 20);
+            this.data_Fonction_Box.TabIndex = 9;
             // 
             // label5
             // 
@@ -178,44 +179,43 @@
             this.label9.TabIndex = 14;
             this.label9.Text = "Fonction :";
             // 
-            // textBox6
+            // data_Civilite_Box
             // 
-            this.textBox6.Location = new System.Drawing.Point(337, 72);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 16;
+            this.data_Civilite_Box.Location = new System.Drawing.Point(337, 72);
+            this.data_Civilite_Box.Name = "data_Civilite_Box";
+            this.data_Civilite_Box.Size = new System.Drawing.Size(100, 20);
+            this.data_Civilite_Box.TabIndex = 16;
             // 
-            // textBox7
+            // data_Tel_Box
             // 
-            this.textBox7.Location = new System.Drawing.Point(337, 137);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 17;
+            this.data_Tel_Box.Location = new System.Drawing.Point(337, 137);
+            this.data_Tel_Box.Name = "data_Tel_Box";
+            this.data_Tel_Box.Size = new System.Drawing.Size(100, 20);
+            this.data_Tel_Box.TabIndex = 17;
             // 
-            // textBox8
+            // data_Nom_Box
             // 
-            this.textBox8.Location = new System.Drawing.Point(337, 42);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 18;
-            this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
+            this.data_Nom_Box.Location = new System.Drawing.Point(337, 42);
+            this.data_Nom_Box.Name = "data_Nom_Box";
+            this.data_Nom_Box.Size = new System.Drawing.Size(100, 20);
+            this.data_Nom_Box.TabIndex = 18;
+            this.data_Nom_Box.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
-            // clientvalue
+            // data_clientvalue
             // 
-            this.clientvalue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.data_clientvalue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.clientvalue.AutoSize = true;
-            this.clientvalue.Checked = true;
-            this.clientvalue.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.clientvalue.Location = new System.Drawing.Point(257, 213);
-            this.clientvalue.Name = "clientvalue";
-            this.clientvalue.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.clientvalue.Size = new System.Drawing.Size(97, 17);
-            this.clientvalue.TabIndex = 19;
-            this.clientvalue.Text = "            ? Client";
-            this.clientvalue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.clientvalue.UseVisualStyleBackColor = true;
+            this.data_clientvalue.AutoSize = true;
+            this.data_clientvalue.Checked = true;
+            this.data_clientvalue.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.data_clientvalue.Location = new System.Drawing.Point(337, 209);
+            this.data_clientvalue.Name = "data_clientvalue";
+            this.data_clientvalue.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.data_clientvalue.Size = new System.Drawing.Size(15, 14);
+            this.data_clientvalue.TabIndex = 19;
+            this.data_clientvalue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.data_clientvalue.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -237,32 +237,42 @@
             this.button2.Text = "Annuler";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(254, 209);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(42, 13);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Client ?";
+            // 
             // contactForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 361);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.clientvalue);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.data_clientvalue);
+            this.Controls.Add(this.data_Nom_Box);
+            this.Controls.Add(this.data_Tel_Box);
+            this.Controls.Add(this.data_Civilite_Box);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.data_Fonction_Box);
+            this.Controls.Add(this.data_Ville_Box);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.data_CP_Box);
+            this.Controls.Add(this.data_Adresse_Box);
+            this.Controls.Add(this.data_Entreprise_Box);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.ContactName);
+            this.Controls.Add(this.data_Mail_Box);
             this.Name = "contactForm";
             this.Text = "ACF : Formulaire d\'ajout de Contact";
             this.Load += new System.EventHandler(this.contactForm_Load);
@@ -273,26 +283,27 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox ContactName;
+        private System.Windows.Forms.TextBox data_Mail_Box;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox data_Entreprise_Box;
+        private System.Windows.Forms.TextBox data_Adresse_Box;
+        private System.Windows.Forms.TextBox data_CP_Box;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox data_Ville_Box;
+        private System.Windows.Forms.TextBox data_Fonction_Box;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.CheckBox clientvalue;
+        private System.Windows.Forms.TextBox data_Civilite_Box;
+        private System.Windows.Forms.TextBox data_Tel_Box;
+        private System.Windows.Forms.TextBox data_Nom_Box;
+        private System.Windows.Forms.CheckBox data_clientvalue;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label10;
     }
 }

@@ -1,0 +1,63 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="AccueilBis.html">Musico'm</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about">L'AGENCE</a></li>
+        <li><a href="#equipe">L'EQUIPE</a></li>
+        <!-- <li><a href="#chiffres">CHIFFRES CLES</a></li> -->
+        <li><a href="./Réalisations.html">REALISATIONS</a></li>
+        <li><a href="./Contact.html">CONTACT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Header avec logo -->
+<div class="jumbotron text-center" style="background-image: url(http://static.wixstatic.com/media/13e356_2639323ab8c049bebc7e46a1a0503e19.jpg_srz_1903_1065_85_22_0.50_1.20_0.00_jpg_srz); background-repeat: no-repeat; background-size: 100%; background-attachment: fixed">
+  <img src="./ressources/Images/logomusicom.png" style="width: 350px; height: 350px; margin-left: 50px">
+  <h1 style="text-shadow: 3px 3px 5px black">Musico'm</h1>
+</div>
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="AccueilBis.html">ACF Formation</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/todo">Reminders</a></li>
+            <li><a href="/makeimport/importForm">Import Entreprise</a></li>
+            <li><a href="/request">Recherche</a></li>
+            <li><a href="/addondl">Télécharger l'addon ACF-Outlook</a></li>
+             <% if (username){%>
+            <li><a href="/signoff">Se deconnecter</a></li>    
+            <%}else{
+                %> <li><a href="/login">Se connecter</a></li>
+            <%}%>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Header avec logo -->
+<div class="jumbotron text-center" style="background-image: url(http://static.wixstatic.com/media/13e356_2639323ab8c049bebc7e46a1a0503e19.jpg_srz_1903_1065_85_22_0.50_1.20_0.00_jpg_srz); background-repeat: no-repeat; background-size: 100%; background-attachment: fixed">
+  <img src="./ressources/Images/logomusicom.png" style="width: 350px; height: 350px; margin-left: 50px">
+  <h1 style="text-shadow: 3px 3px 5px black">Musico'm</h1>
+</div>

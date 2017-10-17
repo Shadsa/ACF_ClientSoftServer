@@ -6,15 +6,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <div class="menu">
-        <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/todo">Reminders</a></li>
-            <li><a href="/makeimport/importForm">Import Entreprise</a></li>
-            <li><a href="/request">Recherche</a></li>
-            <li><a href="/addondl">Télécharger l'addon ACF-Outlook</a></li>
-        </ul>
-    </div>
+    <%-include('header',{username:username,message:message}) %>
+    <%-include('menu',{username:username,message:message}) %>
+    <%-include('tchatbox',{username:username,message:message}) %>
   <% if(answer = 1){
 
   %> Contact collection overwrite with sucess <%
@@ -23,5 +17,4 @@
     %> Operation cancelled <%
   }
   %>
-</body>
-</html>
+<%-include('footer',{username:username,message:message}) %>

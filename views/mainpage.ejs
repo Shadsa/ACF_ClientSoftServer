@@ -1,22 +1,10 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>ACF_Application</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="menu">
-        <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/todo">Reminders</a></li>
-            <li><a href="/makeimport/importForm">Import Entreprise</a></li>
-            <li><a href="/request">Recherche</a></li>
-            <li><a href="/addondl">Télécharger l'addon ACF-Outlook</a></li>
-        </ul>
-    </div>
-    <h1> Bienvenue </h1>
+    <%-include('header',{username:username,message:message}) %>
+    <%-include('menu',{username:username,message:message}) %>
+    <%-include('tchatbox',{username:username,message:message}) %>
+
+   
+    
+    <h1> Bienvenue <%=username%> </h1>
     <p> Acceuil de l'application </p>
 
-</body>
-</html>
+ <%-include('footer',{username:username,message:message}) %>

@@ -8,43 +8,86 @@ using Office = Microsoft.Office.Core;
 using System.Windows.Forms;
 using System.Net.Http;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Microsoft.Office.Tools.Ribbon;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace OutlookAddInACF
 {
     public partial class ThisAddIn
     {
-        
-        //APICall API; => A mettre dans chaque methode , ou alors a passer en param.
+        //Cookie doc : { (0)Authentification : 0 or 1, (1)Username: String, (2)Mail:String}
+        string cookieName = "SessionInfo.xml";
+        string folderName = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        private AuthControl myUserControl1 = new AuthControl();
+        private Microsoft.Office.Tools.CustomTaskPane myCustomTaskPane;
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
-            // Get the Application object
-            Outlook.Application application = this.Application;
-
-            // Get the Inspector object
+            CookieUser cookie = new CookieUser();
+            XmlSerializer serializer = new XmlSerializer(typeof(CookieUser));
+            string pathStringFolder = Path.Combine(folderName, "ACF");
+            string pathStringFile = System.IO.Path.Combine(pathStringFolder, cookieName);
+            Outlook.Application application = Globals.ThisAddIn.Application;
+            Outlook.Explorer activeExplorer = application.ActiveExplorer();
+            Outlook.MAPIFolder selectedFolder = application.ActiveExplorer().CurrentFolder;
+            Outlook.Explorers explorers = application.Explorers;
             Outlook.Inspectors inspectors = application.Inspectors;
-
-            // Get the active Inspector object
             Outlook.Inspector activeInspector = application.ActiveInspector();
+
+            //Try if the directory of the AppData is already create or not 
+            if (! System.IO.Directory.Exists(pathStringFolder))
+            {
+                System.IO.Directory.CreateDirectory(pathStringFolder);
+                TextWriter writer = new StreamWriter(pathStringFile);
+                serializer.Serialize(writer, cookie);
+                writer.Close();
+            }
+
+            //Try if the cookie exist or not
+            if (! System.IO.File.Exists(pathStringFile))
+            {
+                TextWriter writer = new StreamWriter(pathStringFile);
+                serializer.Serialize(writer, cookie);
+                writer.Close();
+            }
+
+            //Get the cookie authentification
+            
+            // Read the file and display it line by line.  
+            FileStream myFileStream = new FileStream(pathStringFile, FileMode.Open);
+            cookie = (CookieUser)serializer.Deserialize(myFileStream);
+
+            if (cookie.IsAuthorized)
+            {
+                System.Console.WriteLine("C'est OK !");
+            }
+            else
+            {
+                //Open the connection interface
+                myCustomTaskPane = this.CustomTaskPanes.Add(myUserControl1, "ACF : Authentification");
+                myCustomTaskPane.Visible = true;            
+                myCustomTaskPane.VisibleChanged += new EventHandler(myCustomTaskPane_VisibleChanged);
+
+            }
+            myFileStream.Close();
+            
+            // Get the active Inspector object
+           
             if (activeInspector != null)
             {
                 // Get the title of the active item when the Outlook start.
                 MessageBox.Show("Active inspector: " + activeInspector.Caption);
             }
 
-            // Get the Explorer objects
-            Outlook.Explorers explorers = application.Explorers;
-
-            // Get the active Explorer object
-            Outlook.Explorer activeExplorer = application.ActiveExplorer();
+         
             if (activeExplorer != null)
             {
                 // Get the title of the active folder when the Outlook start.
                 MessageBox.Show("Active explorer: " + activeExplorer.Caption);
-                
-            }
 
+            }
 
             // ...
             // Add a new Inspector to the application
@@ -63,6 +106,11 @@ namespace OutlookAddInACF
         }
 
         #region Events
+        private void myCustomTaskPane_VisibleChanged(object sender, System.EventArgs e)
+        {
+            bool answer = Globals.Ribbons.ACF_Ribbon.checkAuthentification();
+        }
+
         void Inspectors_AddTextToNewMail(Outlook.Inspector inspector)
         {
             // Get the current item for this Inspecto object and check if is type
@@ -80,7 +128,7 @@ namespace OutlookAddInACF
         void ItemSend_BeforeSend(object item, ref bool cancel)
         {
             Outlook.MailItem mailItem = (Outlook.MailItem)item;
-           
+
             if (mailItem != null)
             {
                 mailItem.Body += "Modified by GettingStartedOutlookAddIn";

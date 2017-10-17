@@ -1,28 +1,11 @@
-<!DOCTYPE html>
+    <%-include('header',{username:username,message:message}) %>
+    <%-include('menu',{username:username,message:message}) %>
+    <%-include('tchatbox',{username:username,message:message}) %>
 
-<html>
-    <head>
-        <title>Ma todolist</title>
-        <style>
-            a {text-decoration: none; color: black;}
-        </style>
-    </head>
+    
+    <div id="about" class="container-fluid" style="text-align: center">
+        <h1>Mes Rappels :</h1>
+        <%-include('elementReminderListTemplate',{username:username,message:message,doc:doc}) %>
+    </div>
 
-    <body>
-        <h1>Ma todolist</h1>
-
-        <ul>
-        <% todolist.forEach(function(todo, index) { %>
-            <li><a href="/todo/supprimer/<%= index %>">✘</a> <%= todo %></li>
-        <% }); %>
-        </ul>
-
-        <form action="/todo/ajouter/" method="post">
-            <p>
-                <label for="newtodo">Que dois-je faire ?</label>
-                <input type="text" name="newtodo" id="newtodo" autofocus />
-                <input type="submit" />
-            </p>
-        </form>
-    </body>
-</html>
+    <%-include('footer',{username:username,message:message}) %>

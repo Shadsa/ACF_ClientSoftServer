@@ -1,0 +1,23 @@
+    <%-include('header',{username:username,message:message}) %>
+    <%-include('menu',{username:username,message:message}) %>
+    <%-include('tchatbox',{username:username,message:message}) %>
+
+
+ <div id="about" class="container-fluid" style="text-align: center">
+        <h1>Résultats de la recherche :</h1>
+        <h3>Valeur recherché : <%= value %></h4>
+        <div id="SearchFields" class="container-fluid" style="text-align: center">
+            <h4> Par Entreprise :</h6>
+            <%-include('elementContactListTemplate',{username:username,message:message,doc:doc["ContactPerEntreprise"]}) %>
+        </div>
+        <div id="SearchFields" class="container-fluid" style="text-align: center">
+            <h6> Par Nom :</h6>
+            <%-include('elementContactListTemplate',{username:username,message:message,doc:doc["ContactPerName"]}) %>
+        </div>
+        <div id="SearchFields" class="container-fluid" style="text-align: center">
+            <h6> Par Mail :</h6>
+            <%-include('elementContactListTemplate',{username:username,message:message,doc:doc["ContactPerMail"]}) %>
+        </div>
+ </div>
+
+    <%-include('footer',{username:username,message:message}) %>

@@ -1,0 +1,36 @@
+    <%-include('header',{username:username,message:message}) %>
+    <%-include('menu',{username:username,message:message}) %>
+    <%-include('tchatbox',{username:username,message:message}) %>
+   
+        <div id="about" class="container-fluid" style="text-align: center">
+        <form action="/register" method="post"> 
+            <fieldset>
+                <label for="From">Information :</label>
+                <div name="Form" class="form-group">
+                    
+                        <label for="Mail">Mail :</label>
+                        <input type="text" id="Mail" name="Mail" autofocus required/>
+                        <br>
+                        <label for="Name">Nom :</label>
+                        <input type="text" id="Name" name="Name" required/>
+                        <br>
+                        <label for="Name">Prenom :</label>
+                        <input type="text" id="Surname" name="Surname" required />
+                        <br>
+                        <label for="password">Mot de passe (6 charactères minimum) :</label>
+                        <input pattern=".{6,}"   required title="6 characters minimum" type="password" id="password" name="password" required />
+                        <br>
+                        <label for="password2">Mot de passe (Vérification) :</label>
+                        <input pattern=".{6,}"   required title="6 characters minimum" type="password" id="password2" name="password2" required/>
+                        <br>
+                    </div>      
+                
+                <input type="submit" value="S'enregistrer" />
+            </fieldset>
+        </form>
+        </div>
+
+      <div class="footer">
+          <a href="/login" title="LinkAway" target="_blank">Déja inscrit ? Alors connectez-vous !</a> 
+      </div>
+      <%-include('footer',{username:username,message:message}) %>

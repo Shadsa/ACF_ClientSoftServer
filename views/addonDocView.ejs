@@ -1,0 +1,12 @@
+    <%-include('header',{username:username,message:message}) %>
+    <%-include('menu',{username:username,message:message}) %>
+    <%-include('tchatbox',{username:username,message:message}) %>
+
+    <h1>Résultats de la recherche :</h1>
+ <div id="about" class="container-fluid" style="text-align: center">
+    <h4>Valeur recherché : <%= value %></h4>
+    <%-include('elementListTemplate',{username:username,message:message,data:data}) %>
+ </div>
+
+ 
+    <%-include('footer',{username:username,message:message}) %>

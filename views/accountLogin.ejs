@@ -1,0 +1,27 @@
+    <%-include('header',{username:username,message:message}) %>
+    <%-include('menu',{username:username,message:message}) %>
+    <%-include('tchatbox',{username:username,message:message}) %>
+    <div id="about" class="container-fluid" style="text-align: center">
+        <form action="/login" method="post"> 
+            <fieldset>
+                
+                <label for="form">Information :</label>
+                <div name="form" class="form-group">				
+                        <label for="Mail">Mail:</label>
+                        <input type="text" id="Mail" name="Mail" autofocus />
+                        <br>
+                        <label for="password">Mot de passe :</label>
+                        <input type="password" id="password" name="password" />
+                </div>
+
+        
+                
+                <input type="submit" value="Se Connecter" />
+            </fieldset>
+        </form>
+
+        <div class="linkAway">
+            <a href="/register" title="Registration" target="_blank">Pas encore inscrit ? Enregistrez-vous ici !</a> 
+        </div>
+    </div>
+    <%-include('footer',{username:username,message:message}) %>

@@ -31,9 +31,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.ReminderObject = new System.Windows.Forms.TextBox();
-            this.DateReminder = new System.Windows.Forms.DateTimePicker();
-            this.NoteReminder = new System.Windows.Forms.RichTextBox();
+            this.data_ReminderObject = new System.Windows.Forms.TextBox();
+            this.data_DateReminder = new System.Windows.Forms.DateTimePicker();
+            this.data_NoteReminder = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -67,32 +67,33 @@
             this.label3.Text = "Date :";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // ReminderObject
+            // data_ReminderObject
             // 
-            this.ReminderObject.Location = new System.Drawing.Point(218, 45);
-            this.ReminderObject.Name = "ReminderObject";
-            this.ReminderObject.Size = new System.Drawing.Size(200, 20);
-            this.ReminderObject.TabIndex = 3;
+            this.data_ReminderObject.Location = new System.Drawing.Point(218, 45);
+            this.data_ReminderObject.Name = "data_ReminderObject";
+            this.data_ReminderObject.Size = new System.Drawing.Size(200, 20);
+            this.data_ReminderObject.TabIndex = 3;
             // 
-            // DateReminder
+            // data_DateReminder
             // 
-            this.DateReminder.Location = new System.Drawing.Point(218, 100);
-            this.DateReminder.Name = "DateReminder";
-            this.DateReminder.Size = new System.Drawing.Size(200, 20);
-            this.DateReminder.TabIndex = 4;
+            this.data_DateReminder.Location = new System.Drawing.Point(218, 100);
+            this.data_DateReminder.Name = "data_DateReminder";
+            this.data_DateReminder.Size = new System.Drawing.Size(200, 20);
+            this.data_DateReminder.TabIndex = 4;
             // 
-            // NoteReminder
+            // data_NoteReminder
             // 
-            this.NoteReminder.BackColor = System.Drawing.SystemColors.Window;
-            this.NoteReminder.Location = new System.Drawing.Point(218, 166);
-            this.NoteReminder.Name = "NoteReminder";
-            this.NoteReminder.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.NoteReminder.Size = new System.Drawing.Size(200, 161);
-            this.NoteReminder.TabIndex = 6;
-            this.NoteReminder.Text = "";
+            this.data_NoteReminder.BackColor = System.Drawing.SystemColors.Window;
+            this.data_NoteReminder.Location = new System.Drawing.Point(218, 166);
+            this.data_NoteReminder.Name = "data_NoteReminder";
+            this.data_NoteReminder.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.data_NoteReminder.Size = new System.Drawing.Size(200, 161);
+            this.data_NoteReminder.TabIndex = 6;
+            this.data_NoteReminder.Text = "";
             // 
             // button1
             // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button1.Location = new System.Drawing.Point(155, 407);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -102,6 +103,7 @@
             // 
             // button2
             // 
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.button2.Location = new System.Drawing.Point(270, 407);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
@@ -116,9 +118,9 @@
             this.ClientSize = new System.Drawing.Size(484, 461);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.NoteReminder);
-            this.Controls.Add(this.DateReminder);
-            this.Controls.Add(this.ReminderObject);
+            this.Controls.Add(this.data_NoteReminder);
+            this.Controls.Add(this.data_DateReminder);
+            this.Controls.Add(this.data_ReminderObject);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -134,9 +136,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox ReminderObject;
-        private System.Windows.Forms.DateTimePicker DateReminder;
-        private System.Windows.Forms.RichTextBox NoteReminder;
+        private System.Windows.Forms.TextBox data_ReminderObject;
+        private System.Windows.Forms.DateTimePicker data_DateReminder;
+        private System.Windows.Forms.RichTextBox data_NoteReminder;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
     }

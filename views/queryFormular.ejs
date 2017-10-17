@@ -1,49 +1,30 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>Research tool</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="menu">
-        <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/todo">Reminders</a></li>
-            <li><a href="/makeimport/importForm">Import Entreprise</a></li>
-            <li><a href="/request">Recherche</a></li>
-            <li><a href="/addondl">Télécharger l'addon ACF-Outlook</a></li>
-        </ul>
-    </div>
-  <p> In order to use this function, just type any related word to your research into the research fields. Then, ask for a separated research or a full text 
+    <%-include('header',{username:username,message:message}) %>
+    <%-include('menu',{username:username,message:message}) %>
+    <%-include('tchatbox',{username:username,message:message}) %>
+
+     <div id="about" class="container-fluid" style="text-align: center">
+   <p> In order to use this function, just type any related word to your research into the research fields. Then, ask for a separated research or a full text 
 one</p>
    
-      <form action="/request/queryForm" method="post"> <!--pas de enctype ni de multdata car pas support� par le bodyparser de expresstgf-->
+      <form action="/request" method="post"> <!--pas de enctype ni de multdata car pas support� par le bodyparser de expresstgf-->
          <fieldset>
             <label for="query">Research:</label>
             <input type="text" id="query" name="query" autofocus />
-			
-			<div class="form-group">
-				<label>Query type :</label>
-					<label for="separated"><input type="radio" name="querytype" id="separated" value="S">Separated</label>
-					<label for="fulltext"><input type="radio" name="querytype" id="fulltext" value="F" >Full-text</label>
-
-			</div>
 
       <div class="form-group">
 				<label>Query Object :</label>
 				<label><input type="radio" name="queryobject" value="Mail" >Mail</label>
 				<label><input type="radio" name="queryobject" value="Contact">Contact</label>
-				<label><input type="radio" name="queryobject" value="Object" >Object</label>
+				<label><input type="radio" name="queryobject" value="Object" >Document</label>
 			</div>
 
       <div class="form-group">
 				<label>Prospection Option :</label>
-					<label><input type="radio" name="Client" id="client" value="1" >Client (yes/no)</label>
+					<label><input type="radio" name="client" id="client" value="1" >UNIQUEMENT POUR RECHERCHE CONTACT : Client (yes/no)</label>
 			</div>
 			
             <input type="submit" value="Ask Skynet" />
          </fieldset>
       </form>
-</body>
-</html>
+     </div>
+ <%-include('footer',{username:username,message:message}) %>

@@ -1,20 +1,6 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>CSV Import tool</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="menu">
-        <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/todo">Reminders</a></li>
-            <li><a href="/makeimport/importForm">Import Entreprise</a></li>
-            <li><a href="/request">Recherche</a></li>
-            <li><a href="/addondl">Télécharger l'addon ACF-Outlook</a></li>
-        </ul>
-    </div>
+    <%-include('header',{username:username,message:message}) %>
+    <%-include('menu',{username:username,message:message}) %>
+    <%-include('tchatbox',{username:username,message:message}) %>
   <p> File was upload. Are you sure to use this CSV as Contact collection ? (erase the old one if exist)</p>
    
       <div class="choice">
@@ -23,5 +9,4 @@
             <li><a href="/makeimport/useData?answer=0">Non</a></li>
         </ul>
     </div>
-</body>
-</html>
+<%-include('footer',{username:username,message:message}) %>

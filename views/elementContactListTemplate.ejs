@@ -1,0 +1,16 @@
+<div class="elementListContainer">
+    <table class="List">
+    
+    <% for(var i=0; i<doc.length; i++) {
+    %>
+        <tr >
+            <td><%= doc[i].Entreprise %></td>
+            <td><%= doc[i].Civilite + doc[i].Nom %></td>
+            <td><%= doc[i].Email %></td>
+            <td><%= doc[i].Telephone %></td>
+        </tr>
+   
+    <% } %>
+    </table>
+
+</div>
